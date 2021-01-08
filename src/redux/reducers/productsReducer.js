@@ -1,11 +1,10 @@
-export const productsReducer = (state = {}, action) => {
+export const productsReducer = (state = [], action) => {
     switch (action.type) {
         case "SET_PRODUCTS":{
-            debugger
-            return {
+            return [
                 ...state,
-                ...action.products
-            }
+                ...action.products.map(i => ({...i, key: i.produkt_id}) ),
+            ]
         }
         default:
             return state

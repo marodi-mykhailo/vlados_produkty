@@ -4,7 +4,7 @@ import {setProducts} from "../redux/reducers/productsReducer";
 
 function* workerProductLoadData() {
     const productsData = yield call(productAPI.getAllProducts)
-    yield put(setProducts(productsData))
+    yield put(setProducts(productsData.data))
 }
 
 export function* watchProductLoadData() {

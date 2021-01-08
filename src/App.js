@@ -10,6 +10,7 @@ import {
 import ProductTable from "./Components/ProductTable";
 import {useDispatch} from "react-redux";
 import {loadProducts} from "./redux/reducers/productsReducer";
+import ProductTableContainer from "./Components/ProductTable";
 
 const {Header, Content, Footer, Sider} = Layout;
 const {SubMenu} = Menu;
@@ -18,7 +19,7 @@ const App = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(loadProducts())
+        // dispatch(loadProducts())
     }, [])
 
     const [collapsed, setCollapsed] = useState(false)
@@ -55,7 +56,7 @@ const App = () => {
             <Layout className="site-layout">
                 <Header className="site-layout-background" style={{padding: 0}}/>
                 <Content style={{margin: '0 16px'}}>
-                    <ProductTable/>
+                    <ProductTableContainer/>
                 </Content>
                 <Footer style={{textAlign: 'center'}}>Ant Design ©2018 Created by Ant UED</Footer>
             </Layout>
