@@ -12,8 +12,11 @@ import {useDispatch} from "react-redux";
 import {loadProducts} from "./redux/reducers/productsReducer";
 import ProductTableContainer from "./Components/ProductTable";
 import {NavLink, Route, Switch} from "react-router-dom";
-import ProductsWithDiscount from "./pages/ProductsWithDiscount";
+import ProductsWithDiscount from "./pages/ProductsWithDiscount/ProductsWithDiscount";
 import Products from "./pages/Products";
+import './App.css'
+import TableOutlined from "@ant-design/icons/lib/icons/TableOutlined";
+import SearchOutlined from "@ant-design/icons/lib/icons/SearchOutlined";
 
 const {Header, Content, Footer, Sider} = Layout;
 const {SubMenu} = Menu;
@@ -34,25 +37,15 @@ const App = () => {
     return (
         <Layout style={{minHeight: '100vh'}}>
             <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
-                <div className="logo"/>
+                <div className="logo">
+                    <h1 className="logo___text">Produkty & Usługi</h1>
+                </div>
                 <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                    <Menu.Item key="1" icon={<PieChartOutlined/>}>
+                    <Menu.Item key="1" icon={<TableOutlined />}>
                         <NavLink to={'/produkty'}>Produkty</NavLink>
                     </Menu.Item>
-                    <Menu.Item key="2" icon={<DesktopOutlined/>}>
+                    <Menu.Item key="2" icon={<SearchOutlined />}>
                         <NavLink to={'/produkty-with-discount'}>Find</NavLink>
-                    </Menu.Item>
-                    <SubMenu key="sub1" icon={<UserOutlined/>} title="User">
-                        <Menu.Item key="3">Tom</Menu.Item>
-                        <Menu.Item key="4">Bill</Menu.Item>
-                        <Menu.Item key="5">Alex</Menu.Item>
-                    </SubMenu>
-                    <SubMenu key="sub2" icon={<TeamOutlined/>} title="Team">
-                        <Menu.Item key="6">Team 1</Menu.Item>
-                        <Menu.Item key="8">Team 2</Menu.Item>
-                    </SubMenu>
-                    <Menu.Item key="9" icon={<FileOutlined/>}>
-                        Files
                     </Menu.Item>
                 </Menu>
             </Sider>

@@ -114,8 +114,7 @@ class ProductTable extends React.Component {
                 return <Table columns={columns} dataSource={[...this.props.data]}/>;
             }
         }
-        console.log(this.props.data)
-        return <div>Hello</div>
+        return <div></div>
     }
 }
 
