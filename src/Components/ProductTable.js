@@ -4,6 +4,7 @@ import Highlighter from 'react-highlight-words';
 import {SearchOutlined} from '@ant-design/icons';
 import {connect} from "react-redux";
 import {loadProducts} from "../redux/reducers/productsReducer";
+import AppStatusBox from "./AppStatusBox/AppStatusBox";
 
 class ProductTable extends React.Component {
     state = {
@@ -114,7 +115,7 @@ class ProductTable extends React.Component {
                 return <Table columns={columns} dataSource={[...this.props.data]}/>;
             }
         }
-        return <div></div>
+        return <div><AppStatusBox type={'sleep'}/></div>
     }
 }
 

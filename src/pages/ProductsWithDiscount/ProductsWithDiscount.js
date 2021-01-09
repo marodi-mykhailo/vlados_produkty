@@ -6,6 +6,7 @@ import ProductTableContainer from "../../Components/ProductTable";
 import AppStatusBox from "../../Components/AppStatusBox/AppStatusBox";
 import styles from './ProductsWithDiscount.module.css'
 import AppStatusText from "../../Components/AppStatusText/AppStatusText";
+import {setAppStatus} from "../../redux/reducers/appReducer";
 
 const {Search} = Input;
 const ProductsWithDiscount = () => {
@@ -14,6 +15,7 @@ const ProductsWithDiscount = () => {
 
     useEffect(() => {
         dispatch(setProducts([]))
+        dispatch(setAppStatus('idle', ''))
     }, [])
 
     const onSearch = (value) => {

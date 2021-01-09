@@ -5,11 +5,11 @@ import AppStatusText from "../AppStatusText/AppStatusText";
 import sleepCat from '../../assets/img/slipping cat.gif'
 
 
-const AppStatusBox = (props) => {
+const AppStatusBox = ({type}) => {
     return (
         <div className={styles.wrapper}>
-           <img className={styles.img} src={props.type === "sleep"? sleepCat: catLoader} alt={"catLoader"}/>
-           <AppStatusText/>
+            <img className={styles.img} src={type === "sleep" ? sleepCat : catLoader} alt={"catLoader"}/>
+            {type != "sleep" && <AppStatusText/>}
         </div>
     );
 };

@@ -25,7 +25,6 @@ const App = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        // dispatch(loadProducts())
     }, [])
 
     const [collapsed, setCollapsed] = useState(false)
@@ -34,17 +33,21 @@ const App = () => {
         setCollapsed(!!collapsed)
     };
 
+    const onActivePageChanges = (num) => {
+        localStorage.setItem('currentPage', num)
+    }
+
     return (
         <Layout style={{minHeight: '100vh'}}>
             <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
                 <div className="logo">
                     <h1 className="logo___text">Produkty & Usługi</h1>
                 </div>
-                <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                    <Menu.Item key="1" icon={<TableOutlined />}>
+                <Menu theme="dark" defaultSelectedKeys={localStorage.getItem('currentPage')} mode="inline">
+                    <Menu.Item key="1" onClick={() => onActivePageChanges('1')} icon={<TableOutlined/>}>
                         <NavLink to={'/produkty'}>Produkty</NavLink>
                     </Menu.Item>
-                    <Menu.Item key="2" icon={<SearchOutlined />}>
+                    <Menu.Item key="2" onClick={() => onActivePageChanges('2')} icon={<SearchOutlined/>}>
                         <NavLink to={'/produkty-with-discount'}>Find</NavLink>
                     </Menu.Item>
                 </Menu>

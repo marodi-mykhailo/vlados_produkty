@@ -4,11 +4,13 @@ import {useDispatch, useSelector} from "react-redux";
 import {loadProducts} from "../redux/reducers/productsReducer";
 import AppStatusBox from "../Components/AppStatusBox/AppStatusBox";
 import AppStatusText from "../Components/AppStatusText/AppStatusText";
+import {setAppStatus} from "../redux/reducers/appReducer";
 
 const Products = () => {
     const dispatch = useDispatch()
     const appStatus = useSelector(state => state.app.appStatus)
     useEffect(() => {
+        dispatch(setAppStatus('idle', ''))
         dispatch(loadProducts())
     }, [])
 
@@ -19,7 +21,7 @@ const Products = () => {
     return (
         <div>
             <ProductTableContainer/>
-            {appStatus != "idle" &&  <AppStatusText/>}
+            {appStatus != "idle" && <AppStatusText/>}
         </div>
     );
 };
