@@ -12,7 +12,7 @@ class ProductTable extends React.Component {
     };
 
     componentDidMount() {
-        this.props.loadProducts()
+
     }
 
 
@@ -125,6 +125,6 @@ const mapStateToProps = state => {
     }
 }
 
-const ProductTableContainer = connect(mapStateToProps, {loadProducts})(ProductTable);
+const ProductTableContainer = connect(mapStateToProps, {})(ProductTable);
 
 export default ProductTableContainer

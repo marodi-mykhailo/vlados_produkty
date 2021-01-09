@@ -11,6 +11,9 @@ import ProductTable from "./Components/ProductTable";
 import {useDispatch} from "react-redux";
 import {loadProducts} from "./redux/reducers/productsReducer";
 import ProductTableContainer from "./Components/ProductTable";
+import {NavLink, Route, Switch} from "react-router-dom";
+import ProductsWithDiscount from "./pages/ProductsWithDiscount";
+import Products from "./pages/Products";
 
 const {Header, Content, Footer, Sider} = Layout;
 const {SubMenu} = Menu;
@@ -34,10 +37,10 @@ const App = () => {
                 <div className="logo"/>
                 <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
                     <Menu.Item key="1" icon={<PieChartOutlined/>}>
-                        Option 1
+                        <NavLink to={'/produkty'}>Produkty</NavLink>
                     </Menu.Item>
                     <Menu.Item key="2" icon={<DesktopOutlined/>}>
-                        Option 2
+                        <NavLink to={'/produkty-with-discount'}>Find</NavLink>
                     </Menu.Item>
                     <SubMenu key="sub1" icon={<UserOutlined/>} title="User">
                         <Menu.Item key="3">Tom</Menu.Item>
@@ -56,9 +59,15 @@ const App = () => {
             <Layout className="site-layout">
                 <Header className="site-layout-background" style={{padding: 0}}/>
                 <Content style={{margin: '0 16px'}}>
-                    <ProductTableContainer/>
+
+                    <Switch>
+                        <Route exact path={'/produkty'} render={() => <Products/>}/>
+                        <Route exact path={'/produkty-with-discount'} render={() => <ProductsWithDiscount/>}/>
+                    </Switch>
+
+
                 </Content>
-                <Footer style={{textAlign: 'center'}}>Ant Design ©2018 Created by Ant UED</Footer>
+                <Footer style={{textAlign: 'center'}}>Wlados Design ©2021 Created by Władysław Kurczenko</Footer>
             </Layout>
         </Layout>
     );

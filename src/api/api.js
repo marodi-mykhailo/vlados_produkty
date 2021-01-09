@@ -15,7 +15,7 @@ export const productAPI = {
         return instance.get(`products/${id}`)
     },
     getProductsWithNipDiscount(nip) {
-        return instance.get(`products/${nip}`)
+        return instance.get(`products-with-discount/${nip}`)
     },
     deleteProductById(id) {
         return instance.delete(`products/${id}`)
