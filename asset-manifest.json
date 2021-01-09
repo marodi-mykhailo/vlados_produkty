@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/vlados_produkty/static/css/main.98a36105.chunk.css",
+    "main.js": "/vlados_produkty/static/js/main.18ecdada.chunk.js",
+    "main.js.map": "/vlados_produkty/static/js/main.18ecdada.chunk.js.map",
+    "runtime-main.js": "/vlados_produkty/static/js/runtime-main.cb8e5cc5.js",
+    "runtime-main.js.map": "/vlados_produkty/static/js/runtime-main.cb8e5cc5.js.map",
+    "static/css/2.c54dbd61.chunk.css": "/vlados_produkty/static/css/2.c54dbd61.chunk.css",
+    "static/js/2.b2985f65.chunk.js": "/vlados_produkty/static/js/2.b2985f65.chunk.js",
+    "static/js/2.b2985f65.chunk.js.map": "/vlados_produkty/static/js/2.b2985f65.chunk.js.map",
+    "static/js/3.4cefeae2.chunk.js": "/vlados_produkty/static/js/3.4cefeae2.chunk.js",
+    "static/js/3.4cefeae2.chunk.js.map": "/vlados_produkty/static/js/3.4cefeae2.chunk.js.map",
+    "index.html": "/vlados_produkty/index.html",
+    "static/css/2.c54dbd61.chunk.css.map": "/vlados_produkty/static/css/2.c54dbd61.chunk.css.map",
+    "static/css/main.98a36105.chunk.css.map": "/vlados_produkty/static/css/main.98a36105.chunk.css.map",
+    "static/js/2.b2985f65.chunk.js.LICENSE.txt": "/vlados_produkty/static/js/2.b2985f65.chunk.js.LICENSE.txt",
+    "static/media/catPreloader.ca6a38d5.gif": "/vlados_produkty/static/media/catPreloader.ca6a38d5.gif",
+    "static/media/slipping cat.9d14bc77.gif": "/vlados_produkty/static/media/slipping cat.9d14bc77.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cb8e5cc5.js",
+    "static/css/2.c54dbd61.chunk.css",
+    "static/js/2.b2985f65.chunk.js",
+    "static/css/main.98a36105.chunk.css",
+    "static/js/main.18ecdada.chunk.js"
+  ]
+}
