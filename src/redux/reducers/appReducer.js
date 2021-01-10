@@ -1,6 +1,7 @@
 const initialState = {
     appStatus: "idle",
-    message: ''
+    message: '',
+    formStatus: ''
 }
 
 export const appReducer = (state = initialState, action) => {
@@ -9,15 +10,17 @@ export const appReducer = (state = initialState, action) => {
             return {
                 ...state,
                 appStatus: action.status,
-                message: action.message
+                message: action.message,
+                formStatus: action.formStatus
             }
         default:
             return state
     }
 }
 
-export const setAppStatus = (status, message) => ({
+export const setAppStatus = (status, message, formStatus = 'idle') => ({
     type: "SET_APP_STATUS",
     status,
+    formStatus,
     message
 })

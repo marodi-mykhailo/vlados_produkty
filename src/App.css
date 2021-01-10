@@ -1,16 +1,44 @@
-.logo{
-  height: 60px;
-  width: 300px;
-  padding-left: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.logo {
+    height: 60px;
+    width: 300px;
+    padding-left: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.logo___text{
-  color: white;
-  font-size: 24px;
-  text-transform: uppercase;
-  text-align: center;
-  margin: 0;
+.logo___text {
+    color: white;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+}
+
+.create__btn__box .create__btn {
+    padding: 5px 40px;
+    background-color: #2ecc71;
+    border: none;
+}
+
+.create__btn__box {
+    width: 86%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.form__wrapper {
+
+}
+
+.ant-col.ant-col-16.ant-form-item-control {
+    margin: 0 auto;
+}
+
+.ant-form-item-control-input-content {
+    display: flex;
+    justify-content: space-evenly;
 }

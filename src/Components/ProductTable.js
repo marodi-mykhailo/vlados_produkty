@@ -109,6 +109,15 @@ class ProductTable extends React.Component {
                 key: 'cena_netto',
                 ...this.getColumnSearchProps('cena_netto'),
             },
+            {
+                title: 'Functions',
+                dataIndex: 'functions',
+                key: 'functions',
+                render: (text, record) =>(
+                    <div></div>
+                )
+            }
+
         ];
         {
             if (this.props.data.length > 1) {

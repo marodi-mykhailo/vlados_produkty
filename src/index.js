@@ -9,11 +9,11 @@ import {store} from "./redux/store";
 import {HashRouter} from "react-router-dom";
 
 ReactDOM.render(
-    <HashRouter>
-        <Provider store={store}>
+    <Provider store={store}>
+        <HashRouter>
             <App/>
-        </Provider>
-    </HashRouter>,
+        </HashRouter>
+    </Provider>,
     document.getElementById('root')
 );
 

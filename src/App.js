@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {Layout, Menu, Breadcrumb} from 'antd';
+import {Layout, Menu, Breadcrumb, Button, Modal} from 'antd';
 import {
     DesktopOutlined,
     PieChartOutlined,
@@ -17,9 +17,10 @@ import Products from "./pages/Products";
 import './App.css'
 import TableOutlined from "@ant-design/icons/lib/icons/TableOutlined";
 import SearchOutlined from "@ant-design/icons/lib/icons/SearchOutlined";
+import ProductForm from "./Components/ProductForm/ProductForm";
+import {setAppStatus} from "./redux/reducers/appReducer";
 
 const {Header, Content, Footer, Sider} = Layout;
-const {SubMenu} = Menu;
 
 const App = () => {
     const dispatch = useDispatch();
@@ -28,6 +29,16 @@ const App = () => {
     }, [])
 
     const [collapsed, setCollapsed] = useState(false)
+    const [isModalVisible, setIsModalVisible] = useState(false);
+
+    const showModal = () => {
+        setIsModalVisible(true);
+    };
+
+    const handleCancel = () => {
+        setIsModalVisible(false);
+    };
+
     const onCollapse = collapsed => {
         console.log(collapsed);
         setCollapsed(!!collapsed)
@@ -53,7 +64,19 @@ const App = () => {
                 </Menu>
             </Sider>
             <Layout className="site-layout">
-                <Header className="site-layout-background" style={{padding: 0}}/>
+                <Header className="site-layout-background" style={{padding: 0}}>
+                    <div className={"create__btn__box"}>
+                        <Button className={"create__btn"} onClick={showModal} type="primary" size={"large"}>
+                            Create Product
+                        </Button>
+                        <Modal title="Create Product"
+                               visible={isModalVisible}
+                               onCancel={handleCancel}
+                               footer={[]}>
+                           <ProductForm setIsModalVisible={setIsModalVisible}/>
+                        </Modal>
+                    </div>
+                </Header>
                 <Content style={{margin: '0 16px'}}>
 
                     <Switch>
