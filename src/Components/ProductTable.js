@@ -3,19 +3,15 @@ import {Table, Input, Button, Space} from 'antd';
 import Highlighter from 'react-highlight-words';
 import {SearchOutlined} from '@ant-design/icons';
 import {connect} from "react-redux";
-import {loadProducts} from "../redux/reducers/productsReducer";
 import AppStatusBox from "./AppStatusBox/AppStatusBox";
+import AdditionalTableButtons from "./AdditionalTableButtons/AdditionalTableButtons";
 
 class ProductTable extends React.Component {
     state = {
         searchText: '',
         searchedColumn: '',
+        isModalVisible: false
     };
-
-    componentDidMount() {
-
-    }
-
 
     getColumnSearchProps = dataIndex => ({
         filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters}) => (
@@ -109,28 +105,42 @@ class ProductTable extends React.Component {
                 key: 'cena_netto',
                 ...this.getColumnSearchProps('cena_netto'),
             },
-            {
-                title: 'Functions',
-                dataIndex: 'functions',
-                key: 'functions',
-                render: (text, record) =>(
-                    <div></div>
-                )
-            }
-
         ];
+
+        const notDiscountColumnPart = {
+            title: 'Functions',
+            dataIndex: 'functions',
+            key: 'functions',
+            render: (text, record) => (
+                <div>
+                    <AdditionalTableButtons item={record}/>
+                </div>
+            )
+        }
+
+        const getColumns = () => {
+            if(this.props.type === "discount"){
+                return columns
+            }else {
+                return [...columns, notDiscountColumnPart]
+
+            }
+        }
+
         {
             if (this.props.data.length > 1) {
-                return <Table columns={columns} dataSource={[...this.props.data]}/>;
+                return <Table columns={getColumns()}
+                              dataSource={[...this.props.data]}/>;
             }
         }
         return <div><AppStatusBox type={'sleep'}/></div>
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
     return {
-        data: state.products
+        data: state.products,
+        type: ownProps.type
     }
 }
 

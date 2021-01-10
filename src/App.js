@@ -1,16 +1,5 @@
-import React, {useEffect, useState} from 'react'
-import {Layout, Menu, Breadcrumb, Button, Modal} from 'antd';
-import {
-    DesktopOutlined,
-    PieChartOutlined,
-    FileOutlined,
-    TeamOutlined,
-    UserOutlined,
-} from '@ant-design/icons';
-import ProductTable from "./Components/ProductTable";
-import {useDispatch} from "react-redux";
-import {loadProducts} from "./redux/reducers/productsReducer";
-import ProductTableContainer from "./Components/ProductTable";
+import React, {useState} from 'react'
+import {Layout, Menu, Button, Modal} from 'antd';
 import {NavLink, Route, Switch} from "react-router-dom";
 import ProductsWithDiscount from "./pages/ProductsWithDiscount/ProductsWithDiscount";
 import Products from "./pages/Products";
@@ -18,16 +7,10 @@ import './App.css'
 import TableOutlined from "@ant-design/icons/lib/icons/TableOutlined";
 import SearchOutlined from "@ant-design/icons/lib/icons/SearchOutlined";
 import ProductForm from "./Components/ProductForm/ProductForm";
-import {setAppStatus} from "./redux/reducers/appReducer";
 
 const {Header, Content, Footer, Sider} = Layout;
 
 const App = () => {
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-    }, [])
-
     const [collapsed, setCollapsed] = useState(false)
     const [isModalVisible, setIsModalVisible] = useState(false);
 

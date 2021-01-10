@@ -1,9 +1,8 @@
-import {Form, Input, Button, Select, Space} from 'antd';
+import {Form, Input, Button, Select} from 'antd';
 import {useDispatch, useSelector} from "react-redux";
-import {createProduct} from "../../redux/reducers/productsReducer";
+import {createProduct, updateProduct} from "../../redux/reducers/productsReducer";
 import SyncOutlined from "@ant-design/icons/lib/icons/SyncOutlined";
-import {useEffect} from "react";
-import {setAppStatus} from "../../redux/reducers/appReducer";
+
 
 const {Option} = Select;
 const layout = {
@@ -27,20 +26,38 @@ const ProductForm = (props) => {
     const formStatus = useSelector(store => store.app.formStatus)
     const appStatus = useSelector(store => store.app.appStatus)
 
-    const onFinish = (values) => {
-        let productData = {
-            "typ": values["Typ"],
-            "nazwa": values["Nazwa"],
-            "cena_netto": values["Cena Netto"],
-            "vatId": values["Vat"]
-        }
+    if(props.type === "edit"){
+        form.setFieldsValue({
+            "Typ": props.dataItem.typ,
+            "Nazwa": props.dataItem.nazwa,
+            "Cena Netto": props.dataItem.cena_netto,
+            "Vat": props.dataItem.stawka === "8" ? "1" : "2"
+        })
+    }
 
-        dispatch(createProduct(productData));
-        form.resetFields();
+    const onFinish = (values) => {
+        if(props.type === "edit"){
+            let productData = {
+                "typ": values["Typ"],
+                "nazwa": values["Nazwa"],
+                "cena_netto": values["Cena Netto"],
+                "vat_id": values["Vat"]
+            }
+            dispatch(updateProduct(props.dataItem.produkt_id, productData))
+            form.resetFields();
+        }else {
+            let productData = {
+                "typ": values["Typ"],
+                "nazwa": values["Nazwa"],
+                "cena_netto": values["Cena Netto"],
+                "vatId": values["Vat"]
+            }
+            dispatch(createProduct(productData));
+            form.resetFields();
+        }
     };
 
     if (formStatus === "successes") {
-        debugger
         props.setIsModalVisible(false)
     }
 

@@ -49,7 +49,7 @@ const ProductsWithDiscount = () => {
                 />
             </div>
 
-            <ProductTableContainer/>
+            <ProductTableContainer type={"discount"}/>
             {appStatus != "idle" &&  <AppStatusText/>}
         </div>
     );

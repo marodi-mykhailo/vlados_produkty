@@ -12,7 +12,7 @@ const Products = () => {
     useEffect(() => {
         dispatch(setAppStatus('idle', ''))
         dispatch(loadProducts())
-    }, [])
+    }, [dispatch])
 
     if (appStatus === 'loading') {
         return <AppStatusBox/>

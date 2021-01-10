@@ -6,7 +6,6 @@ export const productsReducer = (state = [], action) => {
             ]
         }
         case "SET_CREATED_PRODUCT": {
-            debugger
             return [
                 ...state,
                 {
@@ -15,14 +14,14 @@ export const productsReducer = (state = [], action) => {
                 }
             ]
         }
-        case "UPDATE_PRODUCT": {
+        case "SET_UPDATED_PRODUCT": {
             return state.map(i => i.produkt_id === action.id ? {
                 ...action.productData,
                 key: action.productData.produkt_id
             } : i)
         }
-        case "DELETE_PRODUCT": {
-            return state.filter(i => i.produkt_id != action.id)
+        case "SET_DELETED_PRODUCT": {
+            return state.filter(i => i.produkt_id !== action.id)
         }
         default:
             return state
@@ -63,9 +62,20 @@ export const updateProduct = (id, productData) => ({
     productData
 })
 
+export const setUpdatedProduct = (id, productData) => ({
+    type: "SET_UPDATED_PRODUCT",
+    id,
+    productData
+})
+
 /////////////  DELETE PRODUCT  ////////////
 
 export const deleteProduct = (id) => ({
     type: "DELETE_PRODUCT",
+    id
+})
+
+export const setDeletedProduct = (id) => ({
+    type: "SET_DELETED_PRODUCT",
     id
 })
