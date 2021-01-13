@@ -31,7 +31,8 @@ const ProductForm = (props) => {
             "Typ": props.dataItem.typ,
             "Nazwa": props.dataItem.nazwa,
             "Cena Netto": props.dataItem.cena_netto,
-            "Vat": props.dataItem.stawka === "8" ? "1" : "2"
+            "Vat": props.dataItem.stawka === "8" ? "1" : "2",
+            "Jednostka miary": props.dataItem.jednostka_miary,
         })
     }
 
@@ -41,7 +42,8 @@ const ProductForm = (props) => {
                 "typ": values["Typ"],
                 "nazwa": values["Nazwa"],
                 "cena_netto": values["Cena Netto"],
-                "vat_id": values["Vat"]
+                "vat_id": values["Vat"],
+                "jednostka_miary": values["Jednostka miary"]
             }
             dispatch(updateProduct(props.dataItem.produkt_id, productData))
             form.resetFields();
@@ -50,7 +52,8 @@ const ProductForm = (props) => {
                 "typ": values["Typ"],
                 "nazwa": values["Nazwa"],
                 "cena_netto": values["Cena Netto"],
-                "vatId": values["Vat"]
+                "vatId": values["Vat"],
+                "jednostka_miary": values["Jednostka miary"]
             }
             dispatch(createProduct(productData));
             form.resetFields();
@@ -97,6 +100,16 @@ const ProductForm = (props) => {
                 ]}
             >
                 <Input type={"number"} placeholder="Cenna Netto"/>
+            </Form.Item>
+            <Form.Item
+                name="Jednostka miary"
+                rules={[
+                    {
+                        required: true,
+                    },
+                ]}
+            >
+                <Input placeholder="Jednostka miary"/>
             </Form.Item>
             <Form.Item
                 name="Vat"

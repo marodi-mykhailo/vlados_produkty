@@ -96,7 +96,7 @@ class ProductTable extends React.Component {
             },
             {
                 title: 'Stawka',
-                dataIndex: 'stawka',
+                dataIndex: "stawka",
                 key: 'stawka',
                 ...this.getColumnSearchProps('stawka'),
             }, {
@@ -104,6 +104,12 @@ class ProductTable extends React.Component {
                 dataIndex: 'cena_netto',
                 key: 'cena_netto',
                 ...this.getColumnSearchProps('cena_netto'),
+            },
+            {
+                title: 'Jednostka miary',
+                dataIndex: 'jednostka_miary',
+                key: 'jednostka_miary',
+                ...this.getColumnSearchProps('jednostka_miary'),
             },
         ];
 
